@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title>git使用指令</title>
 		<style>
-			code{
+			code {
 				color: #0366d6;
 				font-weight: 600;
 				font-family: "微软雅黑";
 			}
 		</style>
 	</head>
+
 	<body>
 		<div>
 			<p>1.<code>git init</code></p>
-			<p>2.<code>git add</code>  <code>git commit -m "注释"</code></p>
+			<p>2.<code>git add</code> <code>git commit -m "注释"</code></p>
 			<p>3.<code>git status</code> 查看状态 <code>git diff</code> 修改了什么</p>
 			<p>4.<code>git log</code> 可以查看提交历史 --pretty=online 精简</p>
-			<p>5.<code>git reset --hard HEAD^^</code>  HEAD~100 版本回滚</p>
+			<p>5.<code>git reset --hard HEAD^^</code> HEAD~100 版本回滚</p>
 			<p>6.<code>git reflog</code> 查看命令历史 助于回滚 </p>
-			<p>7.<code>git checkout -- file</code> 工作区回滚，未保存到缓存区</p>
-			<p>8.<code>git reset HEAD file</code> 从缓存区回滚到工作区，撤回add</p>
+			<p>7.<code>git checkout -- file</code> 工作区回滚,未保存到缓存区</p>
+			<p>8.<code>git reset HEAD file</code> 从缓存区回滚到工作区,撤回add</p>
 			<p>9.<code>git rm file</code>删除工作区文件 在提交</p>
-			<p>10.误删文件，版本库有 <code>git checkout -- file</code></p>
+			<p>10.误删文件,版本库有 <code>git checkout -- file</code></p>
 			<p>11.<code>ssh-keygen -t rsa -C "youremail@example.com"</code> 创建ssh key</p>
-			<p>12.在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub,将id_rsa.pub添加到GitHubssh</p>
+			<p>12.在用户主目录里找到.ssh目录,里面有id_rsa和id_rsa.pub,将id_rsa.pub添加到GitHubssh</p>
 			<p>13.<code>git remote add origin git@github.com:xkongstar/angular2.git</code>将本地库同步到远程库</p>
 			<p>14.<code>git push -u origin master</code> 把本地库的所有内容推送到远程库上</p>
 			<p>15.<code>git pull --rebase origin master</code> 将远程库的同步过来</p>
 			<p>16.<code>git push origin master</code> 以后提交远程库</p>
-			<p>17.勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件</p>
+			<p>17.勾选Initialize this repository with a README,这样GitHub会自动为我们创建一个README.md文件</p>
 			<p>18.<code>git clone git@github.com:xkongstar/gitskills.git</code></p>
-			<p>19.<code>git branch</code>查看分支 <code>git branch <name></code> 创建分支 <code>git checkout <name></code>切换分支</p>
-			<p>创建+切换分支 <code>checkout -b <name></code>合并某分支到当前分支 <code>git merge <name></code></p>
-			<p><code>git branch -d <name></code> 删除分支</p>
-	</div>
+			<p>19.<code>git branch</code>查看分支 <code>git branch name</code> 创建分支 <code>git checkout name</code>切换分支
+				<code>checkout -b name</code>创建+切换分支 </p>
+			<p><code>git merge name</code>合并某分支到当前分支 <code>git branch -d name</code> 删除分支<code>git log --graph</code>命令可以看到分支合并图</p>
+			<p>BUG分支</p>
+			<p>20.先把工作现场<code>git stash</code></p>
+			<p>21.切换到master<code>git branch master</code>创建bug分支<code>git branch -b issue-01</code></p>
+			<p>22.修复完后<code>git checkout master</code>合并<code>git merge --no-ff -m "merge bug fix 01" issue-01</code></p>
+			<p>23.删除<code>git branch -d issue-01</code></p>
+			<p>24.<code>git checkout dev</code><code>git stash list</code><code>git stash pop</code>回到工作现场</p>
+			<p>25.<code>git branch -D name</code>强行删除没有合并的分支</p>
+			<p>多人协作</p>
+			<p>查看远程库信息,使用<code>git remote -v</code></p>
+			<p>本地新建的分支如果不推送到远程,对其他人就是不可见的</p>
+			<p>从本地推送分支,使用<code>git push origin branch-name</code>,如果推送失败,先用<code>git pull</code>抓取远程的新提交</p>
+			<p>在本地创建和远程分支对应的分支,使用<code>git checkout -b branch-name origin/branch-name</code>,本地和远程分支的名称最好一致</p>
+			<p>建立本地分支和远程分支的关联,使用<code>git branch --set-upstream branch-name origin/branch-name</code></p>
+			<p>从远程抓取分支,使用<code>git pull</code>,如果有冲突,要先处理冲突</p>
+			<p>创建标签</p>
+			<p>命令<code>git tag &lt;name&gt;</code>用于新建一个标签，默认为<code>HEAD</code>，也可以指定一个commit id；</p>
+
+			<p><code>git tag -a &lt;tagname&gt; -m "blablabla..."</code>可以指定标签信息；</p>
+
+			<p><code>git tag -s &lt;tagname&gt; -m "blablabla..."</code>可以用PGP签名标签；</p>
+
+			<p>命令<code>git tag</code>可以查看所有标签。</p>
+			<p>删除标签</p>
+			<p>命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；</p>
+
+			<p>命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
+
+			<p>命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
+
+			<p>命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
+
+		</div>
 	</body>
+
 </html>
