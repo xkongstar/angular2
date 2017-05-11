@@ -12,3 +12,6 @@ this is my first demo for git
 11.$ ssh-keygen -t rsa -C "youremail@example.com" 创建ssh key
 12.在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub,将id_rsa.pub添加到GitHubssh
 13.git remote add origin git@github.com:xkongstar/angular2.git将本地库同步到远程库
+14.git push -u origin master 把本地库的所有内容推送到远程库上
+15.git pull --rebase origin master 将远程库的同步过来
+16.git push origin master 以后提交远程库
