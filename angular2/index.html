@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>git使用指令</title>
+		<style>
+			code{
+				color: #0366d6;
+				font-weight: 600;
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>1.<code>git init</code></p>
+			<p>2.<code>git add</code>  <code>git commit -m "注释"</code></p>
+			<p>3.<code>git status</code> 查看状态 <code>git diff</code> 修改了什么</p>
+			<p>4.<code>git log</code> 可以查看提交历史 --pretty=online 精简</p>
+			<p>5.<code>git reset --hard HEAD^^</code>  HEAD~100 版本回滚</p>
+			<p>6.<code>git reflog</code> 查看命令历史 助于回滚 </p>
+			<p>7.<code>git checkout -- file</code> 工作区回滚，未保存到缓存区</p>
+			<p>8.<code>git reset HEAD file</code> 从缓存区回滚到工作区，撤回add</p>
+			<p>9.<code>git rm file</code>删除工作区文件 在提交</p>
+			<p>10.误删文件，版本库有 <code>git checkout -- file</code></p>
+			<p>11.<code>ssh-keygen -t rsa -C "youremail@example.com"</code> 创建ssh key</p>
+			<p>12.在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub,将id_rsa.pub添加到GitHubssh</p>
+			<p>13.<code>git remote add origin git@github.com:xkongstar/angular2.git</code>将本地库同步到远程库</p>
+			<p>14.<code>git push -u origin master</code> 把本地库的所有内容推送到远程库上</p>
+			<p>15.<code>git pull --rebase origin master</code> 将远程库的同步过来</p>
+			<p>16.<code>git push origin master</code> 以后提交远程库</p>
+			<p>17.勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件</p>
+			<p>18.<code>git clone git@github.com:xkongstar/gitskills.git</code></p>
+			<p>19.<code>git branch</code>查看分支 <code>git branch <name></code> 创建分支 <code>git checkout <name></code>切换分支</p>
+			<p>创建+切换分支 <code>checkout -b <name></code>合并某分支到当前分支 <code>git merge <name></code></p>
+			<p><code>git branch -d <name></code> 删除分支</p>
+	</div>
+	</body>
+</html>
