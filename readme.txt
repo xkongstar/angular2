@@ -5,4 +5,6 @@ this is my first demo for git
 4.git log 可以查看提交历史 --pretty=online 精简
 5.git reset --hard HEAD^^  HEAD~100 版本回滚
 6.git reflog 查看命令历史 助于回滚 
-7.
+7.git checkout -- file 工作区回滚，未保存到缓存区
+8.git reset HEAD file 从缓存区回滚到工作区，撤回add
+9.
