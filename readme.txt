@@ -15,3 +15,6 @@ this is my first demo for git
 14.git push -u origin master 把本地库的所有内容推送到远程库上
 15.git pull --rebase origin master 将远程库的同步过来
 16.git push origin master 以后提交远程库
+远程创建
+17.勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件
+18.git clone git@github.com:xkongstar/gitskills.git
